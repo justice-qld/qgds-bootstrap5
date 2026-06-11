@@ -75,10 +75,10 @@ jobs:
   publish-npm:
     needs: build
     env:
-      HAVE_DEPLOY_KEY: ${{ github.repository == 'qld-gov-au/qgds-bootstrap5' }}
+      HAVE_DEPLOY_KEY: ${{ github.repository == 'justice-qld/qgds-bootstrap5' }}
       #When run on push tags, force is '', default for workflow_dispatch is No so you can't trigger without a double action
       WORKFLOW_DEPLOYMENT: ${{ github.event_name != 'workflow_dispatch'  || github.event.inputs.force == 'Yes' }}
-      DO_DEPLOYMENT: ${{ github.repository == 'qld-gov-au/qgds-bootstrap5' && ( github.event_name != 'workflow_dispatch'  || github.event.inputs.force == 'Yes' ) }}
+      DO_DEPLOYMENT: ${{ github.repository == 'justice-qld/qgds-bootstrap5' && ( github.event_name != 'workflow_dispatch'  || github.event.inputs.force == 'Yes' ) }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
